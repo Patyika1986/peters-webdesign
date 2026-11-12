@@ -1,36 +1,59 @@
 # peters webdesign
 
-Responsive Unternehmenswebseite für Peter Lakatos aus Nürnberg. HTML5, CSS3 und JavaScript ohne Build-Abhängigkeiten und ohne externe Laufzeitbibliotheken.
-
-## Gestaltungsrichtung
-
-Heller, großzügiger Auftritt mit klarer Typografie, weichen Farbverläufen und einer interaktiven Geräteinszenierung. Eigenständige Designbeispiele; keine übernommenen Logos oder Kundenreferenzen.
-
-## Interaktionen
-
-- Scrollabhängige Desktop-/Smartphone-Inszenierung auf großen Bildschirmen
-- Live-Branchenvorschau für Studio, Handwerk und Beratung
-- Umschaltung zwischen Desktop- und Smartphone-Ansicht
-- Dezente Reaktion auf Zeigerbewegungen
-- Animationspause und dynamische Berücksichtigung von `prefers-reduced-motion`
-- Kompakte mobile Darstellung ohne lange Scroll-Szene
-- Mobilmenü, FAQ und direkte Kontaktlinks
+Unternehmenswebseite für Peter Lakatos, Nürnberg, mit zehn vollständigen interaktiven Branchenbeispielen. HTML5, CSS3 und JavaScript; keine Build-Abhängigkeiten oder externen Laufzeitbibliotheken.
 
 ## Starten
 
-`index.html` im Browser öffnen oder `python3 -m http.server 8000` im Projektverzeichnis ausführen und `http://localhost:8000` aufrufen.
+Im GitHub-Checkout `python3 -m http.server 8000` ausführen und `http://localhost:8000` öffnen. Die Hauptseite ist `index.html`, die Sammlung `beispiele/index.html`. Beim Sites-Quellrepository liegt die auszuliefernde Webseite stattdessen unter `dist/`.
 
-## Dateien
+## Hauptseite
 
-- `index.html`: Startseite, Live-Vorschau, Leistungen, Referenz, Preise und Kontakt
-- `style.css`: responsives Design, Gerätemodelle und Animationen
-- `script.js`: Interaktionen, Scroll-Szenen und Bewegungssteuerung
-- `impressum.html`, `datenschutz.html`: Rechtstextentwürfe mit Platzhaltern
+Webdesign, Hosting, Wartung, Google-Unternehmensprofil und Google Ads. Landingpages, Website-Texte und Inhaltspflege sind separate Angebote nach individuellem Umfang. Webseitenpakete, Laufzeit, Steuerangaben und Einrichtungspreis sind transparent beschrieben.
 
-## Vor öffentlichem Einsatz
+## Zehn vollständige Branchenbeispiele
 
-Vollständige Geschäftsanschrift, gegebenenfalls Umsatzsteuer- und Registerangaben sowie tatsächliche Hosting- und Datenschutzangaben ergänzen und rechtlich prüfen. Der Einrichtungspreis wird individuell vor Beauftragung vereinbart.
+Jedes Beispiel umfasst sieben Abschnitte mit eigenen Inhalten, einer individuellen Designrichtung, einer Brancheninteraktion und einem Kontaktformular. Alle Marken und Betriebskonzepte sind fiktiv; keine Kundenreferenzen.
 
-## Prüfung
+| Beispiel | Datei | Interaktion |
+|---|---|---|
+| Reinigung / klarraum | [Öffnen](beispiele/reinigung/index.html) | Reinigungsplaner |
+| Friseur / NUANCE | [Öffnen](beispiele/friseur/index.html) | Salon-Leistungsstudio |
+| Restaurant / CASA LIMONE | [Öffnen](beispiele/restaurant/index.html) | Speisekarten- und Vegetarischfilter |
+| Handwerk / WERKSTÜCK | [Öffnen](beispiele/handwerk/index.html) | Räumliches Materialstudio |
+| Architektur / LINIE / RAUM | [Öffnen](beispiele/architektur/index.html) | Entwurfsgalerie |
+| Notariat / SIEGEL | [Öffnen](beispiele/notar/index.html) | Organisatorischer Themenwegweiser |
+| Anwaltskanzlei / KONTUR RECHT | [Öffnen](beispiele/anwalt/index.html) | Anliegenauswahl |
+| Physiotherapie / VIVA BEWEGUNG | [Öffnen](beispiele/physiotherapie/index.html) | Bewegungsthemen ohne medizinische Beratung |
+| Immobilienvermittlung / AURA IMMOBILIEN | [Öffnen](beispiele/immobilien/index.html) | Objektfilter und temporäre Merkliste |
+| Kfz-Werkstatt / DREHMOMENT | [Öffnen](beispiele/kfz/index.html) | Service-Checkliste |
 
-JavaScript-Syntax und interne Links geprüft. Menü, Escape-Taste, Branchenwechsel auf beiden Geräten, Gerätewahl, Statusmeldungen, Scrollberechnung, Animationspause und reduzierte Bewegung wurden in einer DOM-Simulation geprüft. Eine visuelle Browserprüfung war in der Erstellungssitzung mangels Browsersteuerung nicht möglich.
+## Formulare
+
+Die Formulare validieren Eingaben im Browser und erstellen eine überprüfbare Anfragevorschau. Der anschließende E-Mail-Link öffnet ausdrücklich einen Entwurf an `pdfsr@outlook.com` für eine Webdesign-Anfrage an Peter Lakatos. Nutzer versenden die Nachricht selbst in ihrem E-Mail-Programm. Es gibt keinen Serverversand, keine Speicherung von Leads und keine tatsächliche Terminbuchung oder Bestellung. Alternativ kann der Text bewusst in die Zwischenablage kopiert werden. Bei Änderungen wird eine alte Vorschau verworfen.
+
+Die Demos vermitteln keine Fachleistungen und nehmen keine Gesundheitsdaten, juristischen Fristen oder vertraulichen Dokumente entgegen. Notariats-, Kanzlei- und Physiotherapietexte enthalten keine Fachberatung. Immobilien und Speisekarten sind ausdrücklich als frei erfundene Beispiele markiert.
+
+## Barrierearme Bedienung und Bewegung
+
+Responsive Layouts, beschriftete Formulare, native Validierung, sichtbare Tastaturfokusse, überspringbare Navigation, Escape für das Mobilmenü und Statusmeldungen für interaktive Auswahlen. Animationen lassen sich pausieren; `prefers-reduced-motion` wird auch bei geänderter Systemeinstellung beachtet. Dies ist keine Zusage einer vollständigen Konformität mit einem bestimmten Barrierefreiheitsstandard.
+
+## Bilder
+
+Die Unsplash-Fotografien werden lokal unter `beispiele/assets/` ausgeliefert. Quellen stehen in `beispiele/bildquellen.html` und `beispiele/assets/bildquellen.json`. Keine externen Bildabrufe durch Besucher und keine externen Schriftarten oder Tracker. Vor Übernahme für eine reale Marke Bild- und Namensrechte prüfen.
+
+## Prüfen
+
+Python 3 und Node.js genügen:
+
+```sh
+python3 tests/verify-site.py
+node tests/interactions.cjs
+node --check script.js
+node --check beispiele/assets/demos.js
+```
+
+Die Strukturprüfung kontrolliert HTML-Verschachtelung, eindeutige IDs, lokale Links, Assets und Formulare. Die DOM-Simulation prüft die zehn Brancheninteraktionen, Menü, reduzierte Bewegung, Pflichtfelder, Vorschau, Empfänger und das Verwerfen alter Formulardaten. Die Simulation ist kein visueller Browsertest. Eine visuelle Browserprüfung war in der Erstellungssitzung mangels Browsersteuerung nicht möglich.
+
+## Vor tatsächlichem Geschäftseinsatz
+
+Impressum und Datenschutz sind Entwürfe. Vollständige Geschäftsanschrift, gegebenenfalls Umsatzsteuer- und Registerangaben sowie tatsächliches Hosting ergänzen und rechtlich prüfen. Für die fiktiven Branchenbeispiele müssen bei einer realen Übernahme die jeweiligen tatsächlichen Anbieter-, Berufs-, Leistungs-, Preis- und sonstigen Pflichtangaben ergänzt werden. Für direkten Formularversand wäre ein tatsächlicher Versanddienst mit entsprechend angepassten Datenschutzhinweisen einzurichten.

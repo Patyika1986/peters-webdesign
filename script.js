@@ -22,3 +22,9 @@ world?.addEventListener('pointermove',e=>{if(reduced()||!finePointer.matches||sm
 intro?.addEventListener('pointermove',e=>{if(reduced()||!finePointer.matches)return;const r=intro.getBoundingClientRect();intro.style.setProperty('--aura-x',`${((e.clientX-r.left)/r.width-.5)*25}px`);intro.style.setProperty('--aura-y',`${((e.clientY-r.top)/r.height-.5)*20}px`)});intro?.addEventListener('pointerleave',resetPointer);
 function syncMotion(){document.body.classList.toggle('motion-paused',reduced());toggle?.setAttribute('aria-pressed',String(userPaused));if(toggle)toggle.innerHTML=userPaused?'Animation fortsetzen <span>▶</span>':'Animation pausieren <span>Ⅱ</span>';if(reduced()){resetPointer();$$('.waiting').forEach(el=>el.classList.remove('waiting'))}else requestScroll()}
 toggle?.addEventListener('click',()=>{userPaused=!userPaused;syncMotion()});preference.addEventListener('change',syncMotion);smallScreen.addEventListener('change',()=>{resetPointer();requestScroll()});syncMotion();
+
+// Keyboard-accessible, native horizontal industry collection.
+const industryTrack=document.querySelector('.industry-track');
+function moveIndustries(direction){if(!industryTrack)return;industryTrack.scrollBy({left:direction*Math.min(industryTrack.clientWidth*.85,680),behavior:preference.matches||userPaused?'auto':'smooth'})}
+document.querySelector('[data-showcase-prev]')?.addEventListener('click',()=>moveIndustries(-1));
+document.querySelector('[data-showcase-next]')?.addEventListener('click',()=>moveIndustries(1));
