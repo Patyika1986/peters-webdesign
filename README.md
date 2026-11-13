@@ -78,3 +78,39 @@ Die zehn Branchenbeispiele haben separate HTML-Kompositionen und jeweils eine ei
 - Kfz: technische Service-Konsole mit dynamischer Rundanzeige
 
 Die responsive Gestaltung und die reduzierte Bewegung sind in jeder eigenen Layoutdatei berücksichtigt. Eine visuelle Browserprüfung bleibt offen; die Code- und DOM-Prüfungen ersetzen sie nicht.
+
+## Inhalte und eigenständige Google-Angebote
+
+Interaktive Paketwahl, transparenter Leistungsumfang, Übergabe nach 24 Monaten, ein quellenbezogener Einblick in die bestehende Referenz, persönlicher Ansprechpartner und lokale Projektcheckliste mit Textdownload. Drei eigenständige Ratgeber stehen unter `wissen/`. Es wurden keine persönlichen Erfahrungen, Erfolgszahlen oder Kundenstimmen erfunden. Ein echtes Foto von Peter Lakatos wurde nicht bereitgestellt; die vorhandene Initialengrafik bleibt bestehen.
+
+### Webseitenpreise
+
+| Paket | Monat netto | Einrichtung netto | Gesamt 24 Monate netto | Gesamt brutto |
+|---|---:|---:|---:|---:|
+| Onepager | 50 € | 299 € | 1.499 € | 1.783,81 € |
+| Bis fünf Seiten | 70 € | 499 € | 2.179 € | 2.593,01 € |
+
+Bruttopreise inklusive 19 % Umsatzsteuer. 24 Monate Mindestlaufzeit; danach gehört die Webseite dem Kunden, Weiterbetreuung ist freiwillig. Zusatzleistungen separat.
+
+### Google-Pakete unabhängig von der Webseite
+
+| Angebot | Honorar netto | Einrichtung netto |
+|---|---:|---:|
+| Profil-Start / ein Standort | 249 € einmalig | enthalten |
+| Profil-Aktiv / ein Standort | 149 € monatlich | 249 € einmalig |
+| Profil-Plus / ein Standort | 229 € monatlich | 249 € einmalig |
+| Ads-Start / eine Suchkampagne | 299 € monatlich | 399 € einmalig |
+| Ads-Plus / bis drei Suchkampagnen | 449 € monatlich | 599 € einmalig |
+
+Ein bereits beauftragter Profil-Start wird nicht doppelt berechnet, wenn kein erneuter Aufbau nötig ist. Alle Dienstleistungspreise zuzüglich 19 % USt.; auf der Webseite stehen zusätzlich die Bruttopreise. Google-Betreuung: drei Monate Mindestlaufzeit, danach monatlich kündbar. Das Google-Unternehmensprofil selbst ist kostenlos. Ads-Werbebudget zahlt der Kunde direkt an Google und behält die Kontoinhaberschaft.
+
+Profilbetreuung enthält einen Beitrag je Kalenderwoche, je nach Monat vier oder fünf. Plus ergänzt begrenzte Bewertungsantwortentwürfe, bereitgestellte Bilder und einen monatlichen Abstimmungstermin. Ads-Pakete betreffen Suchkampagnen mit begrenzter Kampagnen- und Anzeigengruppenzahl; Tracking-Einrichtung, Consent-Tools und Landingpages sind gesondert zu vereinbaren. Keine Platzierungs-, Lead- oder Umsatzgarantien.
+
+### Zusätzliche Prüfungen
+
+```sh
+python3 tests/pricing.py
+node tests/main-interactions.cjs
+```
+
+Prüfung der Umsatzsteuer und 24-Monats-Summen sowie DOM-Simulation der Pakethilfe und Projektcheckliste. Keine visuelle Browserprüfung.
