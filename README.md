@@ -61,3 +61,20 @@ Impressum und Datenschutz sind Entwürfe. Vollständige Geschäftsanschrift, geg
 ## Lesbarkeit
 
 Laufende Texte verwenden die lokal ausgelieferte Schrift Atkinson Hyperlegible. Kleine Hinweise und Beschriftungen sind vergrößert, Links und Bedienelemente erhalten mehr Platz. Die Lizenz der Schrift liegt unter `assets/fonts/OFL.txt` (im Sites-Quellrepository unter `dist/assets/fonts/OFL.txt`).
+
+## Eigenständige Branchenlayouts
+
+Die zehn Branchenbeispiele haben separate HTML-Kompositionen und jeweils eine eigene `design.css` im Branchenordner. Das frühere gemeinsame Branchen-Design wird von keiner Branchenseite mehr geladen. `beispiele/assets/foundation.css` enthält ausschließlich gemeinsame Grundlagen für Lesbarkeit, Bedienung und Formulare. Die Interaktionslogik bleibt in `beispiele/assets/demos.js`.
+
+- Reinigung: Raumplan-Dashboard, tabellarische Leistungen, Pflegeplan
+- Friseur: Magazin-Cover, editoriale Leistungszeilen, dunkles Look-Studio
+- Restaurant: mediterrane Teller-Inszenierung, zweispaltige Speisekarte, Reservierungsticket
+- Handwerk: Werkbuch, aufklappbare Werkfelder, räumliches Materiallabor
+- Architektur: Seitenindex, großformatige Projektgalerie, versetzte Kompetenzfelder
+- Notariat: Buch- und Dokumentgestaltung, Themenkapitel, Korrespondenzbogen
+- Kanzlei: typografisches Manifest, Themenbänder und Mint-Kontrast
+- Physiotherapie: organische Komposition, Bewegungswelten und Themenpfad
+- Immobilien: Immobilienjournal, Suchdock und unterschiedlich gewichtete Objektübersicht
+- Kfz: technische Service-Konsole mit dynamischer Rundanzeige
+
+Die responsive Gestaltung und die reduzierte Bewegung sind in jeder eigenen Layoutdatei berücksichtigt. Eine visuelle Browserprüfung bleibt offen; die Code- und DOM-Prüfungen ersetzen sie nicht.
