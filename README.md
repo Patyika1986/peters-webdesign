@@ -57,3 +57,7 @@ Die Strukturprüfung kontrolliert HTML-Verschachtelung, eindeutige IDs, lokale L
 ## Vor tatsächlichem Geschäftseinsatz
 
 Impressum und Datenschutz sind Entwürfe. Vollständige Geschäftsanschrift, gegebenenfalls Umsatzsteuer- und Registerangaben sowie tatsächliches Hosting ergänzen und rechtlich prüfen. Für die fiktiven Branchenbeispiele müssen bei einer realen Übernahme die jeweiligen tatsächlichen Anbieter-, Berufs-, Leistungs-, Preis- und sonstigen Pflichtangaben ergänzt werden. Für direkten Formularversand wäre ein tatsächlicher Versanddienst mit entsprechend angepassten Datenschutzhinweisen einzurichten.
+
+## Lesbarkeit
+
+Laufende Texte verwenden die lokal ausgelieferte Schrift Atkinson Hyperlegible. Kleine Hinweise und Beschriftungen sind vergrößert, Links und Bedienelemente erhalten mehr Platz. Die Lizenz der Schrift liegt unter `assets/fonts/OFL.txt` (im Sites-Quellrepository unter `dist/assets/fonts/OFL.txt`).
