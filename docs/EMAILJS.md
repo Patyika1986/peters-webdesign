@@ -6,7 +6,7 @@ Die Vorlage benötigt ausschließlich {{name}} und {{message}}. name enthält de
 
 Der Website-Code kann die Empfängereinstellung im EmailJS-Konto nicht ändern. Diese muss im Dashboard geprüft werden. Die beiden Template-Parameter steuern keinen Empfänger.
 
-Versand direkt vom Browser an die EmailJS-REST-API, ohne externes SDK und ausschließlich nach expliziter Sendebetätigung. Branchenbeispiele zeigen zuerst eine lokale Vorschau; deren Versand ist eine Webdesign-Anfrage und keine Branchenbuchung. Alternative Resend-Zustellung bleibt deaktiviert.
+Versand direkt vom Browser an die EmailJS-REST-API, ohne externes SDK und ausschließlich nach expliziter Sendebetätigung. Alle elf Formulare senden nach Pflichtfeldprüfung direkt mit einem Klick. Es gibt keine Entwurfs- oder Vorschaufunktion. Branchenformulare senden Webdesign-Anfragen, keine Branchenbuchungen. Fehler bleiben im Formular sichtbar, Eingaben bleiben erhalten; Doppelklicks werden blockiert. Alternative Resend-Zustellung bleibt deaktiviert.
 
 Gegebenenfalls im EmailJS-Konto den Ursprung https://peters-webdesign-nuernberg.peter-lakatos.chatgpt.site freigeben; spätere eigene Domain ergänzen. Kontingent und anbieterseitigen Spam-Schutz prüfen. Keine Private Keys im Frontend verwenden.
 

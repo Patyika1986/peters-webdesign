@@ -32,7 +32,7 @@ Ein statischer Server mit dem Dokumentenstamm `public/` eignet sich für die rei
 
 ## Aktueller Status
 
-Der Auftritt bleibt privat. Es wurden keine DNS-Einträge verändert und weder Werbung geschaltet noch Werbebudget ausgegeben. Direktversand, Turnstile und Google-Messung sind vorbereitet, aber ohne Schlüssel und Freigaben deaktiviert. Die Anfrage bietet bis zur Aktivierung transparent einen selbst zu versendenden E-Mail-Entwurf an. Keine Anfrage wird bei einem technischen Fehler als erfolgreich ausgegeben.
+Der Auftritt bleibt privat. Es wurden keine DNS-Einträge verändert und weder Werbung geschaltet noch Werbebudget ausgegeben. Alle elf Formulare senden nach Pflichtfeldprüfung direkt über EmailJS. Es gibt keine Entwurfsfunktion. Bei Versandfehlern bleiben Eingaben erhalten. Die alternative Resend-Zustellung, Turnstile und Google-Messung bleiben deaktiviert. Keine Anfrage wird bei einem technischen Fehler als erfolgreich ausgegeben.
 
 Domainentscheidung, EmailJS-Vorlagenprüfung und finale Datenschutzangaben sind offen. Ein Originalfoto darf nach ausdrücklicher Vorgabe ausschließlich proportional angezeigt werden, ohne generative Bearbeitung, Filter oder Crop. Das über GitHub bereitgestellte `profilbild.jpeg` ist bytegenau als `public/assets/peter-lakatos-original.jpg` eingebaut. Startseite und persönliche Seite zeigen das vollständige Foto proportional.
 
