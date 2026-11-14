@@ -31,7 +31,7 @@ for source,offer in [(s,'modernisierung-onepager'),(s,'modernisierung-webseite')
  assert 'netto / Monat' not in card,offer
  print(offer,': eigenständiger Preis mit korrekter Umsatzsteuer.')
 for count in [4,5]:
- assert str(count*20)+' € netto / '+money(Decimal(count*20)*Decimal('1.19'))+' € inkl. 19 % USt.' in profile
+ assert str(count*20)+' € netto / '+money(Decimal(count*20)*Decimal('1.19')).removesuffix(',00')+' € inkl. 19 % USt.' in profile
 assert 'Kein Abo und keine 24 Monate Mindestlaufzeit.' in s
 assert 'keine dreimonatige Mindestlaufzeit' in profile
 print('Einmalleistungen von monatlichen Paketen getrennt; Beitragsbeispiele korrekt.')
