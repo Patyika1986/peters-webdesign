@@ -1,7 +1,10 @@
-import fs from 'node:fs/promises';import path from 'node:path';import {fileURLToPath} from 'node:url';
+import crypto from 'node:crypto';import fs from 'node:fs/promises';import path from 'node:path';import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),publicRoot=path.join(root,'public');
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.ttf':'font/ttf','.txt':'text/plain; charset=utf-8','.xml':'application/xml; charset=utf-8'};
 const assets={};async function scan(dir){for(const entry of await fs.readdir(dir,{withFileTypes:true})){const p=path.join(dir,entry.name);if(entry.isDirectory())await scan(p);else{const rel='/'+path.relative(publicRoot,p).split(path.sep).join('/');if(rel.includes('/.')||rel.includes('\\'))throw new Error('Unexpected public path');assets[rel]={type:types[path.extname(p)]||'application/octet-stream',data:(await fs.readFile(p)).toString('base64')}}}}await scan(publicRoot);
+// One content-derived revision keeps HTML, scripts and module imports in sync.
+const revision=crypto.createHash('sha256').update(JSON.stringify(assets)).digest('hex').slice(0,16);
+for(const asset of Object.values(assets)){if(!/^(text\/(html|css|javascript))/.test(asset.type))continue;const text=Buffer.from(asset.data,'base64').toString('utf8');asset.data=Buffer.from(text.replace(/((?:\.\.?\/|\/)[A-Za-z0-9_./-]+\.(?:js|css))(?=["'])/g,'$1?v='+revision)).toString('base64')}
 const contact=await fs.readFile(path.join(root,'server/contact.mjs'),'utf8'),worker=(await fs.readFile(path.join(root,'server/worker.mjs'),'utf8')).replace(/^import .*?;\n/m,'');
 const output='// Generated from authored modules and public assets.\n'+contact+'\n'+worker+'\nconst ASSETS='+JSON.stringify(assets)+';\nexport default createWorker(ASSETS);\n';
 await fs.rm(path.join(root,'dist'),{recursive:true,force:true});await fs.mkdir(path.join(root,'dist/server'),{recursive:true});await fs.mkdir(path.join(root,'dist/.openai'),{recursive:true});await fs.writeFile(path.join(root,'dist/server/index.js'),output);await fs.copyFile(path.join(root,'.openai/hosting.json'),path.join(root,'dist/.openai/hosting.json'));

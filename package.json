@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --test tests/backend.test.mjs tests/consent.test.mjs tests/ads.test.mjs tests/emailjs.test.mjs",
+    "test": "node --test tests/backend.test.mjs tests/consent.test.mjs tests/ads.test.mjs tests/emailjs.test.mjs tests/contact-ui.test.mjs",
     "check:content": "python3 tests/verify-site.py && python3 tests/pricing.py && node tests/main-interactions.cjs && node tests/interactions.cjs",
     "dev": "node scripts/dev.mjs"
   }
