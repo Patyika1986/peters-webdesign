@@ -22,7 +22,7 @@ Die Site bleibt privat. Ein öffentlicher Zugang wird nicht stillschweigend aus 
 
 ### Persönliches Originalfoto
 
-Peter hat ausdrücklich nur proportionale Größenänderung erlaubt, keine generative Bearbeitung, Filter oder einen Beschnitt. Die generativ erzeugte Zwischenfassung wurde nicht veröffentlicht und aus den Website-Assets entfernt. Das Chat-Vorschaubild war im ausführenden Dateisystem nicht als Originaldatei verfügbar. Bis ein tatsächlicher JPG-/PNG-Dateianhang vorliegt, bleibt die Initialengrafik.
+Das über GitHub main bereitgestellte `profilbild.jpeg` wurde am 14.11.2026 bytegenau als `public/assets/peter-lakatos-original.jpg` eingebaut. Startseite und persönliche Seite zeigen das vollständige Original proportional: keine generative Bearbeitung, Filter oder Beschnitt. Die Dateigleichheit wird per SHA-256 geprüft.
 
 Die Originaldatei unverändert einbauen:
 
@@ -66,7 +66,7 @@ Erforderliche Einwilligungssignale werden differenziert gesetzt. Analytics und A
 
 ## Ablauf der Freigabe
 
-1. Fehlende Originaldatei und Domainentscheidung beschaffen.
+1. Domainentscheidung klären.
 2. Öffentlichen Host und Datenschutzangaben abschließen.
 3. Versand- und Turnstile-Konfiguration setzen, Testzustellung prüfen.
 4. Echte Domain verbinden; Zertifikat und Umleitungen prüfen.

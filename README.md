@@ -33,7 +33,7 @@ Ein statischer Server mit dem Dokumentenstamm `public/` eignet sich für die rei
 
 Der Auftritt bleibt privat. Es wurden keine DNS-Einträge verändert und weder Werbung geschaltet noch Werbebudget ausgegeben. Direktversand, Turnstile und Google-Messung sind vorbereitet, aber ohne Schlüssel und Freigaben deaktiviert. Die Anfrage bietet bis zur Aktivierung transparent einen selbst zu versendenden E-Mail-Entwurf an. Keine Anfrage wird bei einem technischen Fehler als erfolgreich ausgegeben.
 
-Domainentscheidung, Versandkonfiguration und finale Datenschutzangaben sind offen. Ein Originalfoto darf nach ausdrücklicher Vorgabe ausschließlich proportional angezeigt werden, ohne generative Bearbeitung, Filter oder Crop. Eine generativ bearbeitete Zwischenfassung wurde nicht veröffentlicht und liegt nicht in den Website-Assets. Für den Einbau fehlt die Originaldatei im ausführenden Dateisystem; bisher nur Chat-Vorschau.
+Domainentscheidung, Versandkonfiguration und finale Datenschutzangaben sind offen. Ein Originalfoto darf nach ausdrücklicher Vorgabe ausschließlich proportional angezeigt werden, ohne generative Bearbeitung, Filter oder Crop. Das über GitHub bereitgestellte `profilbild.jpeg` ist bytegenau als `public/assets/peter-lakatos-original.jpg` eingebaut. Startseite und persönliche Seite zeigen das vollständige Foto proportional.
 
 ## Leistungen und Preise
 
