@@ -35,3 +35,14 @@ for count in [4,5]:
 assert 'Kein Abo und keine 24 Monate Mindestlaufzeit.' in s
 assert 'keine dreimonatige Mindestlaufzeit' in profile
 print('Einmalleistungen von monatlichen Paketen getrennt; Beitragsbeispiele korrekt.')
+ki=(root/'leistungen/ki-loesungen.html').read_text()
+ai_cards=re.findall(r'<article class="pw-ai-plan"[^>]*>(.*?)</article>',ki,re.S)
+assert len(ai_cards)==4
+for card in ai_cards:
+ setup=Decimal(re.search(r'pw-ai-setup">(\d+) €',card).group(1))
+ assert money(setup*Decimal('1.19')) in card,'KI-Einrichtungs-USt.'
+ monthly=Decimal(re.search(r'pw-ai-monthly"><strong>\+ (\d+) €',card).group(1))
+ assert monthly==Decimal('30') and money(monthly*Decimal('1.19')) in card,'KI-Abo-USt.'
+assert 'Zusätzliche Arbeiten und Wünsche werden separat abgerechnet.' in ki
+assert 'zum Ende des jeweiligen Abrechnungsmonats kündbar' in ki
+print('Vier KI-Pakete: Einrichtung und 30-Euro-Abo mit korrekter Umsatzsteuer und getrennten Zusatzarbeiten.')
