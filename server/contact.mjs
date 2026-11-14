@@ -1,4 +1,4 @@
-const SERVICE_NAMES={webdesign:'Webdesign',modernisierung:'Modernisierung bestehender Webseite (einmalig)',profilbeitrag:'Google-Profilbeiträge (einzeln)',profil:'Google-Unternehmensprofil',ads:'Google Ads',landingpage:'Landingpage',text:'Website-Texte',pflege:'Inhaltspflege',sonstiges:'Allgemeine Anfrage'};
+const SERVICE_NAMES={webdesign:'Webdesign',modernisierung:'Modernisierung bestehender Webseite (einmalig)',profilbeitrag:'Google-Profilbeiträge (einzeln)',profil:'Google-Unternehmensprofil',ads:'Google Ads',landingpage:'Landingpage',text:'Website-Texte',pflege:'Inhaltspflege',ki:'KI-Lösungen / Automatisierung',sonstiges:'Allgemeine Anfrage'};
 const EMAIL=/^[^\s<>@\r\n]+@[^\s<>@\r\n]+\.[^\s<>@\r\n]+$/;
 const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const RATE_WINDOW=15*60*1000;const rateBuckets=new Map();

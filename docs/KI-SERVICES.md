@@ -1,0 +1,3 @@
+# KI-Lösungen als Dienstleistung
+
+Neue Angebotsseite /leistungen/ki-loesungen.html mit sieben konkreten Einsatzmöglichkeiten, Ablauf, individueller Kalkulation, optionaler Betreuung und externen Nutzungskosten. Keine Festpreise oder Einspargarantien. Keine produktiven KI-Verbindungen, automatische Antworten oder neue Datenweitergabe eingerichtet. Der interaktive Beispielwechsel zeigt vorbereitete Texte lokal im Browser. Kontaktformular hat den Service ki, weiterhin Versand über die bestehende EmailJS-Vorlage mit name/message. Navigation, Startseite und vorbereitete Sitemap verweisen auf das Angebot. Wissen bleibt in Footer und Startseite erreichbar.
