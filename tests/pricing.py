@@ -22,3 +22,16 @@ for c in cards:
 assert 'Das Unternehmensprofil ist bei Google kostenlos' in google
 assert 'direkt an Google' in google
 print('Vier separate Google-Pakete; Profilkosten und Werbebudget klar getrennt.')
+# Standalone offers must show the full VAT-inclusive price, not a monthly instalment.
+profile=(root/'leistungen/google-unternehmensprofil.html').read_text()
+for source,offer in [(s,'modernisierung-onepager'),(s,'modernisierung-webseite'),(profile,'profil-einzelbeitrag')]:
+ card=re.search(r'<article\b[^>]*id="'+offer+r'"[^>]*>(.*?)</article>',source,re.S).group(1)
+ net=Decimal(re.search(r'pw-once-price">(\d+) €',card).group(1))
+ assert money(net*Decimal('1.19')) in card,(offer,'Bruttopreis')
+ assert 'netto / Monat' not in card,offer
+ print(offer,': eigenständiger Preis mit korrekter Umsatzsteuer.')
+for count in [4,5]:
+ assert str(count*20)+' € netto / '+money(Decimal(count*20)*Decimal('1.19'))+' € inkl. 19 % USt.' in profile
+assert 'Kein Abo und keine 24 Monate Mindestlaufzeit.' in s
+assert 'keine dreimonatige Mindestlaufzeit' in profile
+print('Einmalleistungen von monatlichen Paketen getrennt; Beitragsbeispiele korrekt.')

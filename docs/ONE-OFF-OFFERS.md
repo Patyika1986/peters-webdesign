@@ -1,0 +1,5 @@
+# Eigenständige Einmalleistungen
+
+Modernisierung: Onepager 199 € netto / 236,81 € brutto; bis fünf Seiten 350 € netto / 416,50 € brutto. Einmaliger Gesamtpreis, keine Monatspauschale oder 24 Monate Mindestlaufzeit. Vorhandene Struktur und bereitgestellte Inhalte, responsives Design, Navigation/Kontaktwege, eine Korrekturrunde. Technische Eignung vor Auftrag prüfen. Hosting, Domains, laufende Wartung, zusätzliche Seiten, Systemwechsel und Sonderfunktionen separat. Reguläre monatliche Webseitenpakete unverändert.
+
+Google-Unternehmensprofil: 20 € netto / 23,80 € brutto pro Beitrag. Vier Beiträge: 80 € netto / 95,20 € brutto. Fünf: 100 € netto / 119 € brutto. Kurzer Text, bereitgestelltes Bild, eine Korrekturrunde, Veröffentlichung nach Freigabe. Einzeln oder wöchentlich beauftragbar, keine Monatspauschale oder dreimonatige Mindestlaufzeit. Bestehendes geeignetes Profil vorausgesetzt; keine Einrichtung nötig. Einrichtung/Profilpflege/Auswertungen separat. Keine Doppelberechnung von in Aktiv/Plus enthaltenen Beiträgen. Keine Platzierungsgarantien.
