@@ -1,0 +1,7 @@
+// Copies the supplied original byte-for-byte. No decoding, crop, retouch or AI.
+import fs from 'node:fs/promises';import path from 'node:path';import crypto from 'node:crypto';import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),source=process.argv[2];if(!source)throw new Error('Usage: node scripts/install-portrait.mjs /absolute/path/to/original.jpg');
+const bytes=await fs.readFile(source);const png=bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])),jpeg=bytes[0]===255&&bytes[1]===216&&bytes[2]===255;if(!png&&!jpeg)throw new Error('An unchanged original JPG or PNG file is required.');
+const extension=png?'png':'jpg',name='peter-lakatos-original.'+extension,destination=path.join(root,'public/assets',name);await fs.copyFile(source,destination);const verify=await fs.readFile(destination);if(!bytes.equals(verify))throw new Error('Copy verification failed');
+for(const file of ['index.html','ueber-peter.html']){const p=path.join(root,'public',file);let html=await fs.readFile(p,'utf8');html=html.replace(/<span class="about-monogram"[^>]*>pl<span>\.<\/span><\/span>/,'<img class="peter-portrait-original" src="/assets/'+name+'" alt="Peter Lakatos, Ihr Ansprechpartner bei peters webdesign" loading="lazy">');await fs.writeFile(p,html)}
+console.log('Original copied without changes. SHA-256: '+crypto.createHash('sha256').update(bytes).digest('hex'));

@@ -2,7 +2,7 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit,unquote
 import json,sys
-base=Path(__file__).resolve().parents[1];root=base/'dist' if (base/'dist').is_dir() else base;all_docs={};void={'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
+base=Path(__file__).resolve().parents[1];root=base/'public' if (base/'public').is_dir() else base/'dist' if (base/'dist/index.html').is_file() else base;all_docs={};void={'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
 class Parse(HTMLParser):
  def __init__(self):super().__init__();self.stack=[];self.ids=[];self.links=[];self.assets=[];self.sections=0;self.forms=0;self.tree={'tag':'document','attrs':{},'children':[]};self.nodes=[self.tree]
  def handle_starttag(self,tag,attrs):
@@ -25,7 +25,7 @@ for path,c in all_docs.items():
  for link in c.links+c.assets:
   u=urlsplit(link)
   if u.scheme or u.netloc:continue
-  target=(path.parent/unquote(u.path)).resolve() if u.path else path
+  target=((root/unquote(u.path).lstrip('/')) if u.path.startswith('/') else (path.parent/unquote(u.path))).resolve() if u.path else path
   if target.is_dir():target=target/'index.html'
   assert target.exists(),('missing file',path,link)
   if u.fragment and target in all_docs:assert unquote(u.fragment) in all_docs[target].ids,('missing anchor',path,link)

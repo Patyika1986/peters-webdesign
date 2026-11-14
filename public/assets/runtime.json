@@ -1,0 +1,14 @@
+{
+  "marketing": {
+    "enabled": false,
+    "adsId": "",
+    "leadLabel": ""
+  },
+  "contact": {
+    "ready": false
+  },
+  "site": {
+    "origin": "",
+    "indexable": false
+  }
+}

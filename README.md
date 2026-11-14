@@ -1,116 +1,65 @@
 # peters webdesign
 
-Unternehmenswebseite für Peter Lakatos, Nürnberg, mit zehn vollständigen interaktiven Branchenbeispielen. HTML5, CSS3 und JavaScript; keine Build-Abhängigkeiten oder externen Laufzeitbibliotheken.
+HTML5/CSS3/JavaScript-Auftritt für Peter Lakatos aus Nürnberg, deutschlandweit tätig. Persönliche Unternehmenswebseite, drei eigenständige Leistungsseiten, vier Kampagnen-Zielseiten, Ratgeber, zentrale Projektanfrage und zehn vollständig unterschiedliche Branchenbeispiele.
 
-## Starten
+## Projektstruktur
 
-Im GitHub-Checkout `python3 -m http.server 8000` ausführen und `http://localhost:8000` öffnen. Die Hauptseite ist `index.html`, die Sammlung `beispiele/index.html`. Beim Sites-Quellrepository liegt die auszuliefernde Webseite stattdessen unter `dist/`.
+- `public/`: auszuliefernde HTML-, CSS-, JavaScript- und Bilddateien
+- `server/contact.mjs`: serverseitige Anfragezustellung (Resend), derzeit ohne aktive Zugangsdaten
+- `server/worker.mjs`: Laufzeitkonfiguration, Auslieferung, Robots, Sitemap und Metadaten
+- `scripts/build.mjs`: deterministischer, abhängigkeitenfreier Worker-Build
+- `scripts/prepare_ads.py`: Offline-Generator für pausierte Ads-Entwürfe
+- `scripts/install-portrait.mjs`: unveränderte Originaldatei bytegenau einbauen
+- `tests/`: Inhalt, Preise, Interaktionen, Backend und Einwilligung
+- `docs/RELEASE.md`: Aktivierung, Domain, Rechtsangaben und offene Inhaberentscheidungen
+- `docs/ads/START.md`: Kampagnenplan, Zielseiten, Messung und Konto-Freigabe
+- `docs/QA.md`: Prüfungen und Grenze der fehlenden visuellen Browserprüfung
 
-## Hauptseite
-
-Webdesign, Hosting, Wartung, Google-Unternehmensprofil und Google Ads. Landingpages, Website-Texte und Inhaltspflege sind separate Angebote nach individuellem Umfang. Webseitenpakete, Laufzeit, Steuerangaben und Einrichtungspreis sind transparent beschrieben.
-
-## Zehn vollständige Branchenbeispiele
-
-Jedes Beispiel umfasst sieben Abschnitte mit eigenen Inhalten, einer individuellen Designrichtung, einer Brancheninteraktion und einem Kontaktformular. Alle Marken und Betriebskonzepte sind fiktiv; keine Kundenreferenzen.
-
-| Beispiel | Datei | Interaktion |
-|---|---|---|
-| Reinigung / klarraum | [Öffnen](beispiele/reinigung/index.html) | Reinigungsplaner |
-| Friseur / NUANCE | [Öffnen](beispiele/friseur/index.html) | Salon-Leistungsstudio |
-| Restaurant / CASA LIMONE | [Öffnen](beispiele/restaurant/index.html) | Speisekarten- und Vegetarischfilter |
-| Handwerk / WERKSTÜCK | [Öffnen](beispiele/handwerk/index.html) | Räumliches Materialstudio |
-| Architektur / LINIE / RAUM | [Öffnen](beispiele/architektur/index.html) | Entwurfsgalerie |
-| Notariat / SIEGEL | [Öffnen](beispiele/notar/index.html) | Organisatorischer Themenwegweiser |
-| Anwaltskanzlei / KONTUR RECHT | [Öffnen](beispiele/anwalt/index.html) | Anliegenauswahl |
-| Physiotherapie / VIVA BEWEGUNG | [Öffnen](beispiele/physiotherapie/index.html) | Bewegungsthemen ohne medizinische Beratung |
-| Immobilienvermittlung / AURA IMMOBILIEN | [Öffnen](beispiele/immobilien/index.html) | Objektfilter und temporäre Merkliste |
-| Kfz-Werkstatt / DREHMOMENT | [Öffnen](beispiele/kfz/index.html) | Service-Checkliste |
-
-## Formulare
-
-Die Formulare validieren Eingaben im Browser und erstellen eine überprüfbare Anfragevorschau. Der anschließende E-Mail-Link öffnet ausdrücklich einen Entwurf an `pdfsr@outlook.com` für eine Webdesign-Anfrage an Peter Lakatos. Nutzer versenden die Nachricht selbst in ihrem E-Mail-Programm. Es gibt keinen Serverversand, keine Speicherung von Leads und keine tatsächliche Terminbuchung oder Bestellung. Alternativ kann der Text bewusst in die Zwischenablage kopiert werden. Bei Änderungen wird eine alte Vorschau verworfen.
-
-Die Demos vermitteln keine Fachleistungen und nehmen keine Gesundheitsdaten, juristischen Fristen oder vertraulichen Dokumente entgegen. Notariats-, Kanzlei- und Physiotherapietexte enthalten keine Fachberatung. Immobilien und Speisekarten sind ausdrücklich als frei erfundene Beispiele markiert.
-
-## Barrierearme Bedienung und Bewegung
-
-Responsive Layouts, beschriftete Formulare, native Validierung, sichtbare Tastaturfokusse, überspringbare Navigation, Escape für das Mobilmenü und Statusmeldungen für interaktive Auswahlen. Animationen lassen sich pausieren; `prefers-reduced-motion` wird auch bei geänderter Systemeinstellung beachtet. Dies ist keine Zusage einer vollständigen Konformität mit einem bestimmten Barrierefreiheitsstandard.
-
-## Bilder
-
-Die Unsplash-Fotografien werden lokal unter `beispiele/assets/` ausgeliefert. Quellen stehen in `beispiele/bildquellen.html` und `beispiele/assets/bildquellen.json`. Keine externen Bildabrufe durch Besucher und keine externen Schriftarten oder Tracker. Vor Übernahme für eine reale Marke Bild- und Namensrechte prüfen.
-
-## Prüfen
-
-Python 3 und Node.js genügen:
+Node.js ab 22 genügt für den Worker-Build und die Node-Tests; Python 3 für Inhalts-/Preisprüfungen und CSV-Vorbereitung. Keine Laufzeitpakete zu installieren.
 
 ```sh
-python3 tests/verify-site.py
-node tests/interactions.cjs
-node --check script.js
-node --check beispiele/assets/demos.js
+npm run build
+npm run dev
+npm test
+npm run check:content
+python3 scripts/prepare_ads.py --draft
 ```
 
-Die Strukturprüfung kontrolliert HTML-Verschachtelung, eindeutige IDs, lokale Links, Assets und Formulare. Die DOM-Simulation prüft die zehn Brancheninteraktionen, Menü, reduzierte Bewegung, Pflichtfelder, Vorschau, Empfänger und das Verwerfen alter Formulardaten. Die Simulation ist kein visueller Browsertest. Eine visuelle Browserprüfung war in der Erstellungssitzung mangels Browsersteuerung nicht möglich.
+`npm run dev` stellt die gebaute Fassung lokal unter `http://127.0.0.1:4174` bereit. Der Entwicklungsserver wurde hier nicht gestartet, da die Sites-Browsersteuerung fehlt.
 
-## Vor tatsächlichem Geschäftseinsatz
+Ein statischer Server mit dem Dokumentenstamm `public/` eignet sich für die reine Darstellung; die API ist dort nicht aktiv. Für den tatsächlichen Direktversand und dynamische Laufzeitfunktionen das Worker-Artefakt in Sites bereitstellen. Die primäre Veröffentlichung bleibt auf derselben Site-ID in `.openai/hosting.json`.
 
-Impressum und Datenschutz sind Entwürfe. Vollständige Geschäftsanschrift, gegebenenfalls Umsatzsteuer- und Registerangaben sowie tatsächliches Hosting ergänzen und rechtlich prüfen. Für die fiktiven Branchenbeispiele müssen bei einer realen Übernahme die jeweiligen tatsächlichen Anbieter-, Berufs-, Leistungs-, Preis- und sonstigen Pflichtangaben ergänzt werden. Für direkten Formularversand wäre ein tatsächlicher Versanddienst mit entsprechend angepassten Datenschutzhinweisen einzurichten.
+## Aktueller Status
 
-## Lesbarkeit
+Der Auftritt bleibt privat. Es wurden keine DNS-Einträge verändert und weder Werbung geschaltet noch Werbebudget ausgegeben. Direktversand, Turnstile und Google-Messung sind vorbereitet, aber ohne Schlüssel und Freigaben deaktiviert. Die Anfrage bietet bis zur Aktivierung transparent einen selbst zu versendenden E-Mail-Entwurf an. Keine Anfrage wird bei einem technischen Fehler als erfolgreich ausgegeben.
 
-Laufende Texte verwenden die lokal ausgelieferte Schrift Atkinson Hyperlegible. Kleine Hinweise und Beschriftungen sind vergrößert, Links und Bedienelemente erhalten mehr Platz. Die Lizenz der Schrift liegt unter `assets/fonts/OFL.txt` (im Sites-Quellrepository unter `dist/assets/fonts/OFL.txt`).
+Domainentscheidung, Versandkonfiguration und finale Datenschutzangaben sind offen. Ein Originalfoto darf nach ausdrücklicher Vorgabe ausschließlich proportional angezeigt werden, ohne generative Bearbeitung, Filter oder Crop. Eine generativ bearbeitete Zwischenfassung wurde nicht veröffentlicht und liegt nicht in den Website-Assets. Für den Einbau fehlt die Originaldatei im ausführenden Dateisystem; bisher nur Chat-Vorschau.
 
-## Eigenständige Branchenlayouts
+## Leistungen und Preise
 
-Die zehn Branchenbeispiele haben separate HTML-Kompositionen und jeweils eine eigene `design.css` im Branchenordner. Das frühere gemeinsame Branchen-Design wird von keiner Branchenseite mehr geladen. `beispiele/assets/foundation.css` enthält ausschließlich gemeinsame Grundlagen für Lesbarkeit, Bedienung und Formulare. Die Interaktionslogik bleibt in `beispiele/assets/demos.js`.
-
-- Reinigung: Raumplan-Dashboard, tabellarische Leistungen, Pflegeplan
-- Friseur: Magazin-Cover, editoriale Leistungszeilen, dunkles Look-Studio
-- Restaurant: mediterrane Teller-Inszenierung, zweispaltige Speisekarte, Reservierungsticket
-- Handwerk: Werkbuch, aufklappbare Werkfelder, räumliches Materiallabor
-- Architektur: Seitenindex, großformatige Projektgalerie, versetzte Kompetenzfelder
-- Notariat: Buch- und Dokumentgestaltung, Themenkapitel, Korrespondenzbogen
-- Kanzlei: typografisches Manifest, Themenbänder und Mint-Kontrast
-- Physiotherapie: organische Komposition, Bewegungswelten und Themenpfad
-- Immobilien: Immobilienjournal, Suchdock und unterschiedlich gewichtete Objektübersicht
-- Kfz: technische Service-Konsole mit dynamischer Rundanzeige
-
-Die responsive Gestaltung und die reduzierte Bewegung sind in jeder eigenen Layoutdatei berücksichtigt. Eine visuelle Browserprüfung bleibt offen; die Code- und DOM-Prüfungen ersetzen sie nicht.
-
-## Inhalte und eigenständige Google-Angebote
-
-Interaktive Paketwahl, transparenter Leistungsumfang, Übergabe nach 24 Monaten, ein quellenbezogener Einblick in die bestehende Referenz, persönlicher Ansprechpartner und lokale Projektcheckliste mit Textdownload. Drei eigenständige Ratgeber stehen unter `wissen/`. Es wurden keine persönlichen Erfahrungen, Erfolgszahlen oder Kundenstimmen erfunden. Ein echtes Foto von Peter Lakatos wurde nicht bereitgestellt; die vorhandene Initialengrafik bleibt bestehen.
-
-### Webseitenpreise
-
-| Paket | Monat netto | Einrichtung netto | Gesamt 24 Monate netto | Gesamt brutto |
+| Webseitenpaket | Monat netto | Einrichtung netto | Gesamt 24 Monate netto | Gesamt inkl. 19 % USt. |
 |---|---:|---:|---:|---:|
 | Onepager | 50 € | 299 € | 1.499 € | 1.783,81 € |
 | Bis fünf Seiten | 70 € | 499 € | 2.179 € | 2.593,01 € |
 
-Bruttopreise inklusive 19 % Umsatzsteuer. 24 Monate Mindestlaufzeit; danach gehört die Webseite dem Kunden, Weiterbetreuung ist freiwillig. Zusatzleistungen separat.
+24 Monate Mindestlaufzeit, danach gehört die Webseite dem Kunden; Betreuung freiwillig verlängerbar. Landingpages, Website-Texte, Inhaltspflege und Google-Leistungen separat.
 
-### Google-Pakete unabhängig von der Webseite
-
-| Angebot | Honorar netto | Einrichtung netto |
+| Google-Leistung | Monat netto | Einrichtung netto |
 |---|---:|---:|
-| Profil-Start / ein Standort | 249 € einmalig | enthalten |
-| Profil-Aktiv / ein Standort | 149 € monatlich | 249 € einmalig |
-| Profil-Plus / ein Standort | 229 € monatlich | 249 € einmalig |
-| Ads-Start / eine Suchkampagne | 299 € monatlich | 399 € einmalig |
-| Ads-Plus / bis drei Suchkampagnen | 449 € monatlich | 599 € einmalig |
+| Profil-Start / ein Standort | – | 249 € einmalig |
+| Profil-Aktiv | 149 € | 249 € |
+| Profil-Plus | 229 € | 249 € |
+| Ads-Start | 299 € | 399 € |
+| Ads-Plus | 449 € | 599 € |
 
-Ein bereits beauftragter Profil-Start wird nicht doppelt berechnet, wenn kein erneuter Aufbau nötig ist. Alle Dienstleistungspreise zuzüglich 19 % USt.; auf der Webseite stehen zusätzlich die Bruttopreise. Google-Betreuung: drei Monate Mindestlaufzeit, danach monatlich kündbar. Das Google-Unternehmensprofil selbst ist kostenlos. Ads-Werbebudget zahlt der Kunde direkt an Google und behält die Kontoinhaberschaft.
+Alle Dienstleistungspreise zuzüglich 19 % USt.; Website zeigt Bruttopreise. Bereits beauftragter Profil-Start wird nicht doppelt berechnet, wenn kein erneuter Aufbau nötig ist. Laufende Google-Betreuung: drei Monate Mindestlaufzeit, danach monatlich kündbar. Das Unternehmensprofil selbst ist kostenlos. Ads-Werbebudget separat direkt an Google. Keine Platzierungs-, Lead- oder Umsatzgarantien.
 
-Profilbetreuung enthält einen Beitrag je Kalenderwoche, je nach Monat vier oder fünf. Plus ergänzt begrenzte Bewertungsantwortentwürfe, bereitgestellte Bilder und einen monatlichen Abstimmungstermin. Ads-Pakete betreffen Suchkampagnen mit begrenzter Kampagnen- und Anzeigengruppenzahl; Tracking-Einrichtung, Consent-Tools und Landingpages sind gesondert zu vereinbaren. Keine Platzierungs-, Lead- oder Umsatzgarantien.
+## Branchenkollektion
 
-### Zusätzliche Prüfungen
+Reinigung (Raumplan-Dashboard), Friseur (Modemagazin), Restaurant (mediterrane Speisekarte), Handwerk (Werkbuch/Materiallabor), Architektur (Galerie mit Seitenindex), Notariat (Dokumentgestaltung), Kanzlei (typografisches Manifest), Physiotherapie (organischer Themenpfad), Immobilien (Journal/Objektkollektion), Kfz (Service-Konsole). Jede Seite hat sieben Inhaltsbereiche, eigenes Layout, eigene Farben und ein Demo-Kontaktformular. Marken, Fachangebote und Beispielpreise sind fiktiv und keine Kundenreferenzen. Rechtliche/medizinische Fachleistungen werden nicht vermittelt.
 
-```sh
-python3 tests/pricing.py
-node tests/main-interactions.cjs
-```
+## Daten, Bilder und Schriften
 
-Prüfung der Umsatzsteuer und 24-Monats-Summen sowie DOM-Simulation der Pakethilfe und Projektcheckliste. Keine visuelle Browserprüfung.
+Keine Zugangsdaten in Git. `.env.example` enthält nur leere Namen und deaktivierte Vorgaben; reale Werte gehören in Sites-Laufzeiteinstellungen. Lokale Schrift Atkinson Hyperlegible mit Lizenz unter `public/assets/fonts/OFL.txt`. Illustrative Unsplash-Bilder werden lokal ausgeliefert; Quellen unter `public/beispiele/bildquellen.html`.
+
+Die HTML-Inhalte behalten große Schrift, gut erreichbare Links und reduzierte Bewegung. Ein vollständiger Konformitätsnachweis zu einem bestimmten Barrierefreiheitsstandard wird nicht behauptet. Visuelle Browserprüfung noch offen; siehe `docs/QA.md`.

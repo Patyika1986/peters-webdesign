@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const path=require('node:path'),os=require('node:os'),{execFileSync}=require('node:child_process');
-const base=path.resolve(__dirname,'..'),root=fs.existsSync(path.join(base,'dist'))?path.join(base,'dist'):base;
+const base=path.resolve(__dirname,'..'),root=fs.existsSync(path.join(base,'public'))?path.join(base,'public'):fs.existsSync(path.join(base,'dist','index.html'))?path.join(base,'dist'):base;
 const scratch=fs.mkdtempSync(path.join(os.tmpdir(),'peters-demo-tests-')),fixture=path.join(scratch,'dom.json');
 let trees;
 try{execFileSync('python3',[path.join(__dirname,'verify-site.py'),'--dom-output',fixture]);trees=JSON.parse(fs.readFileSync(fixture,'utf8'))}finally{fs.rmSync(scratch,{recursive:true,force:true})}
