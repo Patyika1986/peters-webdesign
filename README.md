@@ -5,7 +5,8 @@ HTML5/CSS3/JavaScript-Auftritt für Peter Lakatos aus Nürnberg, deutschlandweit
 ## Projektstruktur
 
 - `public/`: auszuliefernde HTML-, CSS-, JavaScript- und Bilddateien
-- `server/contact.mjs`: serverseitige Anfragezustellung (Resend), derzeit ohne aktive Zugangsdaten
+- `public/assets/emailjs-contact.js`: aktiver browserseitiger Formularversand über EmailJS
+- `server/contact.mjs`: inaktive alternative Resend-Zustellung
 - `server/worker.mjs`: Laufzeitkonfiguration, Auslieferung, Robots, Sitemap und Metadaten
 - `scripts/build.mjs`: deterministischer, abhängigkeitenfreier Worker-Build
 - `scripts/prepare_ads.py`: Offline-Generator für pausierte Ads-Entwürfe
@@ -33,7 +34,7 @@ Ein statischer Server mit dem Dokumentenstamm `public/` eignet sich für die rei
 
 Der Auftritt bleibt privat. Es wurden keine DNS-Einträge verändert und weder Werbung geschaltet noch Werbebudget ausgegeben. Direktversand, Turnstile und Google-Messung sind vorbereitet, aber ohne Schlüssel und Freigaben deaktiviert. Die Anfrage bietet bis zur Aktivierung transparent einen selbst zu versendenden E-Mail-Entwurf an. Keine Anfrage wird bei einem technischen Fehler als erfolgreich ausgegeben.
 
-Domainentscheidung, Versandkonfiguration und finale Datenschutzangaben sind offen. Ein Originalfoto darf nach ausdrücklicher Vorgabe ausschließlich proportional angezeigt werden, ohne generative Bearbeitung, Filter oder Crop. Das über GitHub bereitgestellte `profilbild.jpeg` ist bytegenau als `public/assets/peter-lakatos-original.jpg` eingebaut. Startseite und persönliche Seite zeigen das vollständige Foto proportional.
+Domainentscheidung, EmailJS-Vorlagenprüfung und finale Datenschutzangaben sind offen. Ein Originalfoto darf nach ausdrücklicher Vorgabe ausschließlich proportional angezeigt werden, ohne generative Bearbeitung, Filter oder Crop. Das über GitHub bereitgestellte `profilbild.jpeg` ist bytegenau als `public/assets/peter-lakatos-original.jpg` eingebaut. Startseite und persönliche Seite zeigen das vollständige Foto proportional.
 
 ## Leistungen und Preise
 
