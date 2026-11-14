@@ -1,11 +1,13 @@
 # EmailJS-Formularversand
 
-Service: service_ncpp0q7. Vorlage: template_osvroo9. Der Public Key ist ein öffentlicher Browser-Schlüssel, kein privates Geheimnis.
+Service: service_ncpp0q7. Vorlage: template_osvroo9. Der Public Key ist ein öffentlicher Browser-Schlüssel.
 
-In der EmailJS-Vorlage Empfänger fest auf pdfsr@outlook.com setzen, Reply-To auf {{reply_to}}, Betreff auf {{subject}}. Inhalt mit {{name}}, {{email}} und {{message}} belegen. message enthält zusätzlich Leistung, Unternehmen, Telefon und Referenz. Ebenfalls verfügbar: from_name, from_email, to_name, to_email, company, phone, service, title, submission_id. Template-Variablen als Text verwenden, kein ungefiltertes HTML aus Besucherangaben.
+Die Vorlage benötigt ausschließlich {{name}} und {{message}}. name enthält den Absendernamen. message enthält Name, E-Mail-Adresse für die Antwort, Leistung, Unternehmen, Telefon, Referenz und Nachricht. Empfänger im EmailJS-Dashboard fest auf peters-webdesign@outlook.de setzen. Ein fester Betreff wie „Neue Anfrage – peters webdesign“ genügt. Kein dynamisches Reply-To vorausgesetzt: Die Antwortadresse steht im Nachrichtentext und wird für eine Antwort kopiert. Variablen als Text verwenden, kein ungefiltertes Besucher-HTML.
 
-EmailJS erlaubt die tatsächliche Site-Domain gegebenenfalls unter Account / Security / Allowed origins. Für die derzeitige Vorschau: https://peters-webdesign-nuernberg.peter-lakatos.chatgpt.site. Spätere eigene Domain ergänzen. Kontingent und Spam-Schutz im EmailJS-Konto prüfen. Keine Private Keys im Frontend verwenden.
+Der Website-Code kann die Empfängereinstellung im EmailJS-Konto nicht ändern. Diese muss im Dashboard geprüft werden. Die beiden Template-Parameter steuern keinen Empfänger.
 
-Der Versand erfolgt direkt vom Browser an die EmailJS-REST-API ausschließlich nach expliziter Sendebetätigung, ohne externes SDK. Hauptformular bestätigt erst HTTP 200 mit OK. Zehn Branchenbeispiele haben eine lokale Vorschau und eine separate Sendeschaltfläche; sie versenden Webdesign-Anfragen, keine Branchenbuchungen. Die Resend-Alternative bleibt ausgeschaltet. Browserseitiger Doppelklickschutz und Validierung ersetzen keine anbieterseitige Missbrauchsabwehr.
+Versand direkt vom Browser an die EmailJS-REST-API, ohne externes SDK und ausschließlich nach expliziter Sendebetätigung. Branchenbeispiele zeigen zuerst eine lokale Vorschau; deren Versand ist eine Webdesign-Anfrage und keine Branchenbuchung. Alternative Resend-Zustellung bleibt deaktiviert.
 
-Automatisierte Tests prüfen Payload, Reply-To, Fehler, Spamfalle und Doppelklickschutz mit simuliertem Versand. Kein echter Postfach-Eingang oder visueller Browsertest bestätigt. Nach Konfiguration der Vorlage eine reale Testanfrage über die Seite absenden und im EmailJS-Verlauf sowie Empfängerpostfach prüfen. Datenschutz-/Vertragsdetails sind vor öffentlichem Betrieb zu vervollständigen.
+Gegebenenfalls im EmailJS-Konto den Ursprung https://peters-webdesign-nuernberg.peter-lakatos.chatgpt.site freigeben; spätere eigene Domain ergänzen. Kontingent und anbieterseitigen Spam-Schutz prüfen. Keine Private Keys im Frontend verwenden.
+
+Automatisierte Tests prüfen die genau zwei Template-Felder, enthaltene Antwortadresse, Fehler und Doppelklickschutz mit simuliertem Versand. Kein realer Postfacheingang oder visueller Browsertest bestätigt. Nach Kontrolle des Empfängers eine reale Testanfrage absenden. Datenschutz-/Vertragsdetails vor öffentlichem Betrieb vervollständigen.

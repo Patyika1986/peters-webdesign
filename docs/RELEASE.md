@@ -38,7 +38,7 @@ Im Sites-Einstellungsbereich tatsächliche Versanddaten hinterlegen, niemals in 
 
 - `RESEND_API_KEY`: API-Schlüssel des vom Inhaber eingerichteten Versandkontos.
 - `CONTACT_FROM`: bestätigte Absenderadresse auf einer für den Versand freigegebenen Domain.
-- `CONTACT_TO`: `pdfsr@outlook.com` ist als Ziel voreingestellt.
+- `CONTACT_TO`: `peters-webdesign@outlook.de` ist als Ziel voreingestellt.
 - `PUBLIC_TURNSTILE_SITE_KEY` und `TURNSTILE_SECRET_KEY`: für die tatsächliche Domain eingerichtete Turnstile-Schlüssel.
 - `CONTACT_PRIVACY_READY=true`: erst nach Ergänzung und Prüfung der tatsächlichen Versand-/Spamprüfungsanbieter, Auftragsverarbeitung, Empfänger, Speicherfristen und Übermittlungsgrundlagen.
 - `CONTACT_DELIVERY_ENABLED=true`: erst wenn Konfiguration und Test bereit sind.
