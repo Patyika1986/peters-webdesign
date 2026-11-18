@@ -1,6 +1,7 @@
 /* Only allowlisted selections become form text. No personal data in links. */
-const SERVICES={webdesign:'Neue Webseite',webanwendung:'Individuelle Webanwendung / Prozessautomatisierung',modernisierung:'Modernisierung einer bestehenden Webseite',profilbeitrag:'Einzelne Google-Profilbeiträge',profil:'Google-Unternehmensprofil',ads:'Google Ads',landingpage:'Landingpage',text:'Website-Texte',pflege:'Inhaltspflege',ki:'KI-Lösungen / Automatisierung',sonstiges:'Allgemeine Anfrage'};
+const SERVICES={webdesign:'Neue Webseite',hosts:'Hotel- / Host-Anwendung',webanwendung:'Individuelle Webanwendung / Prozessautomatisierung',modernisierung:'Modernisierung einer bestehenden Webseite',profilbeitrag:'Einzelne Google-Profilbeiträge',profil:'Google-Unternehmensprofil',ads:'Google Ads',landingpage:'Landingpage',text:'Website-Texte',pflege:'Inhaltspflege',ki:'KI-Lösungen / Automatisierung',sonstiges:'Allgemeine Anfrage'};
 const PACKAGES={
+ hosts:{gesamt:'Anwendung für Hotels, Ferienwohnungen und Hosts',planung:'Buchungsübersicht und Reinigungseinsätze',dokumente:'Rechnungs- und Vertragsabläufe für meinen Betrieb'},
  webanwendung:{prozess:'Webanwendung für meinen Arbeitsablauf',lager:'Lagerbestand und Materialverwaltung'},
  webdesign:{onepager:'Neuer Onepager mit Hosting und Wartung',webseite:'Neue Webseite bis fünf Seiten mit Hosting und Wartung',individuell:'Individuelles Angebot für eine neue Webseite'},
  modernisierung:{onepager:'Einmalige Modernisierung eines Onepagers',webseite:'Einmalige Modernisierung einer Webseite bis fünf Seiten',individuell:'Individuelle Prüfung einer bestehenden Webseite'},
@@ -16,7 +17,8 @@ export function resolveInquirySelection(search=''){
  let prompt='Ich interessiere mich für: '+title+(sector?' für meinen Betrieb im Bereich '+sector:'')+'.\n';
  if(service==='modernisierung'){prompt+='Meine bestehende Webseite: \n';if(params.get('betreuung')==='separat')prompt+='Bitte bieten Sie die laufende Betreuung separat an.\n'}
  if(service==='webdesign'&&params.get('betreuung')==='ohne')prompt+='Ich möchte einen einmaligen Auftrag ohne Betreuungsabo.\n';
+ if(service==='hosts')prompt+='Anzahl und Art der Unterkünfte: \nHeutige Buchungsquellen und Teamorganisation: \n';
  if(service==='webanwendung')prompt+='Unser heutiger Ablauf: \n';
- prompt+=service==='ki'||service==='webanwendung'?'Meine wiederkehrende Aufgabe: ':'Mein Vorhaben: ';
+ prompt+=service==='ki'||service==='webanwendung'||service==='hosts'?'Meine wiederkehrende Aufgabe: ':'Mein Vorhaben: ';
  return {service,title:title+(sector?' · '+sector:''),prompt};
 }
